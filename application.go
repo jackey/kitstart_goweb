@@ -12,9 +12,9 @@ import (
 func main() {
 
 	routerInstance := fasthttprouter.New()
-	router.InitRoutes(routerInstance)
+	handler := router.InitRoutes(routerInstance)
 
-	go fasthttp.ListenAndServe(":8085", routerInstance.Handler)
+	go fasthttp.ListenAndServe(":8085", handler)
 
 	utils.Info("系统启动在 :8085")
 

@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/valyala/fasthttp"
@@ -10,7 +9,7 @@ import (
 
 // IndexController 网站主入口 控制器
 type IndexController struct {
-	context context.Context
+	BaseController
 }
 
 // Index - 首页
@@ -18,9 +17,7 @@ func (controller *IndexController) Index(ctx *fasthttp.RequestCtx, _ fasthttprou
 	fmt.Fprintf(ctx, "i'm index action ")
 }
 
-// NewIndexController - 新建控制器实例
-func NewIndexController() *IndexController {
-	return &IndexController{
-		context: context.Background(),
-	}
+// SetupRoutes - 配置路由表
+func (controller *IndexController) SetupRoutes() {
+	controller.Router.GET("/", controller.Index)
 }

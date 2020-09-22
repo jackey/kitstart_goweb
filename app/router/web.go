@@ -1,6 +1,7 @@
 package router
 
 import (
+	"context"
 	"kitstart_goweb/app/controller"
 	"kitstart_goweb/app/utils"
 
@@ -13,10 +14,16 @@ type WebRouter struct {
 
 // RouterInit web路由配置
 func (webrouter *WebRouter) RouterInit(router *fasthttprouter.Router) {
+
 	utils.Info("注册web路由列表")
 
-	indexController := controller.NewIndexController()
-	router.GET("/", indexController.Index)
+	controller := controller.IndexController{
+		controller.BaseController{
+			Router:  router,
+			Context: context.Background(),
+		},
+	}
+	controller.SetupRoutes()
 
 }
 

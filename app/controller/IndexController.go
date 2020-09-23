@@ -14,7 +14,7 @@ type IndexController struct {
 
 // Index - 首页
 func (controller *IndexController) Index(ctx *fasthttp.RequestCtx, _ fasthttprouter.Params) {
-	fmt.Fprintf(ctx, "i'm index action ")
+	fmt.Fprintf(ctx, "i'm index action and data is \n")
 }
 
 // SetupRoutes - 配置路由表

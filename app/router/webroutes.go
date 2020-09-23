@@ -10,24 +10,27 @@ import (
 
 // WebRouter web 网站路由配置
 type WebRouter struct {
+	controllers []controller.BaseControllerInterface
 }
 
 // RouterInit web路由配置
 func (webrouter *WebRouter) RouterInit(router *fasthttprouter.Router) {
 
-	utils.Info("注册web路由列表")
+	utils.Info("setup web routes")
 
 	controller := controller.IndexController{
 		controller.BaseController{
-			Router:  router,
-			Context: context.Background(),
+			Router: router,
 		},
 	}
 	controller.SetupRoutes()
+	webrouter.controllers = append(webrouter.controllers, &controller)
 
 }
 
-// NewWebRouter 返回WebRouter
-func NewWebRouter() *WebRouter {
-	return &WebRouter{}
+// InjectContext - 注入 context 到controllers
+func (webrouter *WebRouter) InjectContext(ctx context.Context) {
+	for _, contrl := range webrouter.controllers {
+		contrl.SetContext(ctx)
+	}
 }

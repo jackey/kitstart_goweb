@@ -16,7 +16,7 @@ func main() {
 
 	go fasthttp.ListenAndServe(":8085", handler)
 
-	utils.Info("系统启动在 :8085")
+	utils.Info("app listening at :8085")
 
 	select {}
 

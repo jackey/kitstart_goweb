@@ -1,23 +1,18 @@
 package main
 
 import (
-	"kitstart_goweb/app/utils"
-
-	"kitstart_goweb/app/router"
-
-	"github.com/valyala/fasthttp"
-	"github.com/valyala/fasthttprouter"
+	"kitstart_goweb/app"
 )
 
 func main() {
 
-	routerInstance := fasthttprouter.New()
-	handler := router.InitRoutes(routerInstance)
+	app.InitApp()
 
-	go fasthttp.ListenAndServe(":8085", handler)
+	// routerInstance := fasthttprouter.New()
+	// handler := router.InitRoutes(routerInstance)
 
-	utils.Info("app listening at :8085")
+	// go fasthttp.ListenAndServe(":8085", handler)
 
-	select {}
+	// utils.Info("app listening at :8085")
 
 }

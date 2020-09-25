@@ -1,1 +1,14 @@
-driver: mysql
+defaults: &defaults
+  adaptor: mysql
+  host: localhost
+  db: db_cp
+
+prod:
+  user: root
+  password: admin
+  <<: *defaults
+
+devel:
+  user: root
+  password: admin
+  <<: *defaults

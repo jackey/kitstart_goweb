@@ -8,7 +8,7 @@ prod:
   password: admin
   <<: *defaults
 
-devel:
+dev:
   user: root
   password: admin
   <<: *defaults

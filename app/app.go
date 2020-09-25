@@ -29,4 +29,8 @@ func InitApp() {
 		fmt.Println(err)
 	}
 
+	port, err := utils.ConfigInt("app.port")
+	host, err := utils.ConfigString("database.dev.host")
+	fmt.Println("port is ", port, host, err)
+
 }

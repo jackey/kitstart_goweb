@@ -2,17 +2,14 @@ package main
 
 import (
 	"kitstart_goweb/app"
+	"kitstart_goweb/app/utils"
 )
 
 func main() {
 
-	app.InitApp()
+	application := app.InitApp()
 
-	// routerInstance := fasthttprouter.New()
-	// handler := router.InitRoutes(routerInstance)
+	utils.Info("app listening at :", application.Port)
 
-	// go fasthttp.ListenAndServe(":8085", handler)
-
-	// utils.Info("app listening at :8085")
-
+	select {}
 }

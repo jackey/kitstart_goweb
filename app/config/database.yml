@@ -1,7 +1,9 @@
 defaults: &defaults
-  adaptor: mysql
+  driver: mysql
   host: localhost
-  db: db_cp
+  db: cp_db
+  port: "3306"
+  charset: "utf8mb4"
 
 prod:
   user: root

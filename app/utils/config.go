@@ -83,3 +83,10 @@ func ConfigString(name string) (str string, err error) {
 	str = v.(string)
 	return
 }
+
+// ConfigMap 获取 {name} 的字典配置
+func ConfigMap(name string) (m map[interface{}]interface{}, err error) {
+	v, err := Config(name)
+	m = v.(map[interface{}]interface{})
+	return
+}

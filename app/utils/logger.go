@@ -14,6 +14,11 @@ func Debug(args ...interface{}) {
 	print(args...)
 }
 
+// Error 错误信息
+func Error(args ...interface{}) {
+	print(args...)
+}
+
 // print
 func print(args ...interface{}) {
 	fmt.Println(args...)
